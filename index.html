@@ -1,48 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Andersix Publishing</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin: 10px 0;
-        }
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 90%;
-        }
+      :root{ --ink:#1f2937; --muted:#6b7280; --bg:#ffffff; --panel:#e5e7eb }
+      *{box-sizing:border-box}
+      html,body{margin:0; height:100%; font-family:system-ui, sans-serif; color:var(--ink); background:var(--bg)}
+      img{max-width:100%; height:auto; display:block}
+  
+      /* Intro header */
+      header{ position:relative; min-height:100svh; display:flex; align-items:center; justify-content:center; background:var(--bg); padding:2rem 2rem 72px; text-align:center }
+      header img{ max-width:90%; width:520px; opacity:0; animation:fadeIn 1.2s ease forwards }
+      @keyframes fadeIn{ from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+  
+      /* Scroll cue */
+      .scroll-indicator{ position:absolute; left:50%; bottom:calc(env(safe-area-inset-bottom,0px) + 18px); transform:translateX(-50%); font-size:1.8rem; color:#94a3b8; opacity:.95; animation:arrowBounce 1.5s ease-in-out infinite }
+      @keyframes arrowBounce{ 0%,100%{ transform:translate(-50%,0); opacity:.95 } 50%{ transform:translate(-50%,8px); opacity:.6 } }
+      @media (prefers-reduced-motion:reduce){ header img{animation:none; opacity:1} .scroll-indicator{animation:none} }
+  
+      /* Swoop dividers */
+      .swoop{ width:100%; height:120px; line-height:0 }
+      .swoop svg{ display:block; width:100%; height:100% }
+      .swoop-bottom{ background:var(--panel) } /* ensure contrast so white path is visible */
+      @media (min-width:720px){ .swoop{ height:160px } }
+  
+      /* Feature section */
+      main{ background:var(--panel); padding:2.25rem 1rem 3rem }
+      .wrap{ max-width:1040px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:1.6rem; text-align:center }
+      .book-cover{ max-width:460px }
+      .title{ font-size:1.6rem; margin:0 0 .4rem }
+      .byline{ margin:.1rem 0 .8rem; color:var(--muted); font-weight:600 }
+      .blurb{ font-size:1rem; line-height:1.65; color:var(--muted) }
+  
+      /* Larger screens */
+      @media (min-width:720px){
+        header img{ width:760px }
+        .wrap{ flex-direction:row; text-align:left }
+        .book-cover{ max-width:540px }
+        .info{ max-width:520px }
+        .title{ font-size:2.2rem }
+        .blurb{ font-size:1.125rem }
+      }
+  
+      /* Footer */
+      footer{ background:var(--bg); padding:2rem 1rem; text-align:center; font-size:.9rem; color:var(--muted) }
     </style>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-</head>
-<body>
-    <img src="andersixpublishing-transparent.png" alt="Andersix Publishing Logo">
-    <h1>🚧 We are under construction! 🚧</h1>
-    <p>Something is coming soon! Stay tuned.</p>
-</body>
-</html>
+  </head>
+  <body>
+    <header>
+      <img src="andersixpublishing-transparent.png" alt="Andersix Publishing logo">
+      <div class="scroll-indicator" aria-hidden="true">&#x2193;</div>
+    </header>
+  
+    <!-- Top swoop into grey -->
+    <div class="swoop swoop-top" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="var(--panel)" d="M1440,0 C1100,160 400,0 0,320 L1440,320 Z"></path>
+      </svg>
+    </div>
+  
+    <main>
+      <div class="wrap">
+        <img class="book-cover" src="herbal-apoth-single.png" alt="The Ultimate Holistic Herbal Apothecary by Sadie Atkins">
+        <div class="info">
+          <h1 class="title">The Ultimate Holistic Herbal Apothecary</h1>
+          <p class="byline">by Sadie Atkins</p>
+          <p class="blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus mi quis viverra ornare, eget dictum urna facilisis. Pellentesque habitant morbi tristique senectus et netus.</p>
+        </div>
+      </div>
+    </main>
+  
+<!-- Bottom swoop back to white (exact vertical mirror of the top) -->
+<div class="swoop swoop-bottom" aria-hidden="true" style="background: var(--panel);">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="var(--bg)"
+        d="M0,160 C360,20 1080,220 1440,48 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+  
+    <footer>
+      &copy; <span id="year"></span> Andersix Publishing. All rights reserved.
+    </footer>
+  
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+  </html>
+  
