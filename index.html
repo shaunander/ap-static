@@ -75,11 +75,19 @@
 
     /* Feature section */
     main{ background:var(--panel); padding:2.25rem 1rem 3rem }
+
+    /* Each book block */
     .wrap{
       max-width:1040px; margin:0 auto;
       display:flex; flex-direction:column; align-items:center;
-      gap:1.6rem; text-align:center
+      gap:1.6rem; text-align:center;
     }
+
+    /* space between multiple books */
+    .wrap + .wrap{
+      margin-top:3rem;
+    }
+
     .book-cover{ max-width:460px }
     .title{ font-size:1.6rem; margin:0 0 .4rem }
     .byline{ margin:.1rem 0 .8rem; color:var(--muted); font-weight:600 }
@@ -112,12 +120,28 @@
   </div>
 
   <main>
+    <!-- Book 1 (existing) -->
     <div class="wrap">
       <img class="book-cover" src="herbal-apoth-single.png" alt="The Ultimate Holistic Herbal Apothecary by Sadie Atkins">
       <div class="info">
         <h1 class="title">The Ultimate Holistic Herbal Apothecary</h1>
         <p class="byline">by Sadie Atkins</p>
-        <p class="blurb">The Ultimate Holistic Herbal Apothecary is the debut book by Sadie Atkins, a lifelong enthusiast of natural wellness and traditional herbal practices. Drawing on her own journey with herbs from childhood and curiosity, to years of hands-on learning. Sadie makes the art of herbal medicine simple, approachable, and practical for everyday life. This first book blends her passion for nature, ancestral traditions, and accessible health solutions, offering readers an empowering introduction to crafting their own remedies at home.</p>
+        <p class="blurb">
+          The Ultimate Holistic Herbal Apothecary is the debut book by Sadie Atkins, a lifelong enthusiast of natural wellness and traditional herbal practices. Drawing on her own journey with herbs from childhood and curiosity, to years of hands-on learning. Sadie makes the art of herbal medicine simple, approachable, and practical for everyday life. This first book blends her passion for nature, ancestral traditions, and accessible health solutions, offering readers an empowering introduction to crafting their own remedies at home.
+        </p>
+      </div>
+    </div>
+
+    <!-- Book 2 (new) -->
+    <div class="wrap">
+      <!-- Update this filename to your new PNG -->
+      <img class="book-cover" src="sadie2.png" alt="The Holistic Anti-Inflammatory Diet for Beginners">
+      <div class="info">
+        <!-- Update these details for the new book -->
+        <h1 class="title">The Holistic Anti-Inflammatory Diet for Beginners</h1>
+        <p class="byline">by Sadie Atkins</p>
+        <p class="blurb">
+          This is the second book by Sadie Atkins, a lifelong enthusiast of natural wellness and holistic healing. Designed especially for beginners, it offers a clear and accessible introduction to anti-inflammatory living through natural remedies, mindful nutrition, and daily habits that support a healthy, balanced body. Sadie’s passion for nature-based wellness and her practical approach make this the perfect starting point for anyone looking to reduce inflammation and embrace a more vibrant, holistic lifestyle.        </p>
       </div>
     </div>
   </main>
